@@ -44,7 +44,7 @@ canvas.addEventListener('click',jumpAudio);
 var score = document.createElement("div");
 score.setAttribute("id","score");
 document.getElementsByTagName("body")[0].appendChild(score);
-score.innerHTML = "Score : 0";
+score.innerHTML = "SCORE : 0";
 
 var highScore = document.createElement("div");
 highScore.setAttribute("id","highscore");
@@ -52,11 +52,11 @@ document.getElementsByTagName("body")[0].appendChild(highScore);
 
     if(best == null)
        { localStorage.setItem('bestscore','0');
-        highScore.innerHTML = "Best Score : 0";
+        highScore.innerHTML = "BEST : 0";
         } 
     else
     {    localStorage.setItem('bestscore',JSON.stringify(best));
-        highScore.innerHTML = "Best Score : " + best;
+        highScore.innerHTML = "BEST : " + best;
     }
 
 canvas.addEventListener('click', play );
@@ -83,7 +83,7 @@ window.onload = function () {
 }
 
 function dispScore(max){
-    score.innerHTML ="Score : " + max;
+    score.innerHTML ="SCORE : " + max;
     console.log(max);
     dispBestScore(max);
 }
@@ -93,7 +93,7 @@ function dispBestScore(max){
     if(max>best)
     {
     localStorage.setItem('bestscore',JSON.stringify(max));
-    highScore.innerHTML ="Best Score : " + max;
+    highScore.innerHTML ="BEST : " + max;
     }
 }
 
@@ -106,7 +106,7 @@ function burstAudio() {
 }
 
 function gameEndScreen(max){
-    gameEnd.innerText = "Score : " + max; 
+    gameEnd.innerText = "SCORE : " + max; 
     gameEnd.appendChild(reloadImage);
     gameEnd.style.display = "block";
     reloadImage.addEventListener('click',reload);

@@ -21,8 +21,8 @@ canvas {
 
 #pause {
     position : absolute;
-    top : 10px;
-    right : 10px;
+    top : 2%;
+    right : 2%;
     z-index: 1;
     padding: 5px;
     margin : 6px;
@@ -30,9 +30,9 @@ canvas {
 
 #score {
     position: absolute;
-    top: 10px;
-    left : 10px;
-    padding: 10px;
+    top: 2%;
+    left : 2%;
+    padding: 7px;
     margin: 10px;
     border: 1px solid black; 
     background-color: cornsilk;
@@ -40,9 +40,9 @@ canvas {
 
 #highscore {
     position: absolute;
-    top : 10px;
-    right : 65px;
-    padding: 10px;
+    top : 83%;
+    left : 2%;
+    padding: 7px;
     margin: 10px;
     border: 1px solid black;
     background-color: cornsilk;
