@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Cantarell:wght@700&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Cantarell', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F95700FF;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: block;
+}
+
+#pause {
+    position : absolute;
+    top : 10px;
+    right : 10px;
+    z-index: 1;
+    padding: 5px;
+    margin : 6px;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left : 10px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black; 
+    background-color: cornsilk;
+}
+
+#highscore {
+    position: absolute;
+    top : 10px;
+    right : 65px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    background-color: cornsilk;
+}
+
+#pausescreen{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display : none;
+    z-index: 2;
+    background: rgba(255,255,255,0.6);
+}
+
+#resume{
+    position: absolute;
+    top : 40%;
+    left : 50%;
+    transform: translateX(-50%);
+}
+
+#reload{
+    position : absolute;
+    top : 60%;
+    left : 50%; 
+    transform: translateX(-50%);
+}
+
+#gameover{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+    display: none;
+    background: rgba(255,255,255,0.6);
+    font-size: 40px;
+    z-index: 3;
+}
