@@ -22,7 +22,7 @@ reloadImage.src = "reload.svg";
 let gameEnd = document.getElementById("gameover");
 gameEnd.appendChild(reloadImage);
 
-let color = ["#ffffff","#00A4CCFF","#000000","#CB1E04"];
+let color = ["#ffffff","#00a4cc","#000000","#cb1e04"];
 
 let newObstacley ;
 let click = 0;
@@ -105,6 +105,20 @@ function burstAudio() {
         burstSound.play();
 }
 
+// function colourSwitch(){
+
+// }
+
+function componentToHex(h) {
+    var hex = h.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+  } 
+
+function rgbToHex(r, g, b) {
+    console.log("#" + componentToHex(r) + componentToHex(g) + componentToHex(b));
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  }
+
 function gameEndScreen(max){
     gameEnd.innerText = "SCORE : " + max; 
     gameEnd.appendChild(reloadImage);
@@ -151,8 +165,8 @@ function pauseGame(){
 function  setup (){
     clearInterval(render);
     obstacle = new Array();
-    player = new PlayerCircle(canvas.width/2,canvas.height/2+ canvas.height*0.3,canvas.height*0.02,'#ffffff');
     obstacle.push(new Obstacle(canvas.width/2,canvas.height/3,canvas.height*0.15,Math.floor(((Math.random()+1)*2)+0.5)));
+    player = new PlayerCircle(canvas.width/2,canvas.height/2+ canvas.height*0.3,canvas.height*0.02,color[Math.floor((Math.random()*(obstacle[0].n - 1))+0.8)]);
     maxScore = 0;
     count = 0;
     dispScore(maxScore);
@@ -265,7 +279,8 @@ function Obstacle(x,y,r,n) {
         if((player.y - this.y <= (player.r + this.r + canvas.height/80)) && (player.y - this.y >= (this.r - player.r - canvas.height/80)))
         {
             pixel = ctx.getImageData(this.x,this.y + this.r,1,1).data;
-            if(!(pixel[0]==255&&pixel[1]==255&&pixel[2]==255))
+            // if(!(pixel[0]==255&&pixel[1]==255&&pixel[2]==255))
+            if(rgbToHex(pixel[0],pixel[1],pixel[2])!==player.c)
               {  ctx.clearRect(0,0,canvas.width,canvas.height);
                 clearInterval(render);
                     burstAudio();
@@ -282,7 +297,8 @@ function Obstacle(x,y,r,n) {
         else if((this.y - player.y <= (player.r + this.r + canvas.height/80)) && (this.y - player.y >= (this.r - player.r - canvas.height/80)))
         {
             pixel = ctx.getImageData(this.x,this.y - this.r,1,1).data;
-            if(!(pixel[0]==255&&pixel[1]==255&&pixel[2]==255))
+            // if(!(pixel[0]==255&&pixel[1]==255&&pixel[2]==255))
+            if(rgbToHex(pixel[0],pixel[1],pixel[2])!==player.c)
               {  ctx.clearRect(0,0,canvas.width,canvas.height);
                 clearInterval(render);                
                 burstAudio();
